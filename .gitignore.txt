@@ -1,4 +1,5 @@
-base/__pycache__/
-SampleCodes/
-venv/
-reports/
+/base/__pycache__/
+/SampleCodes/
+/venv/
+/reports/
+/logs/
