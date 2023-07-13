@@ -1,4 +1,6 @@
 /base/__pycache__/
+/tests/__pycache__/
+/utilities/__pycache__/
 /SampleCodes/
 /venv/
 /reports/
