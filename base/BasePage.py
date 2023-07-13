@@ -70,13 +70,6 @@ class BasePage:
             except Exception as e:
                 self.log.error(e)
 
-        elif locatorType == "elementID":
-            try:
-                element = wait.until(EC.visibility_of(self.driver.find_element(AppiumBy.XPATH, f'//*[contains(@elementId,"{locatorValue}")]')))
-                self.log.info(f'Locator Found : {locatorValue}')
-                return element
-            except Exception as e:
-                self.log.error(e)
         else:
             self.log.info("Locator value " + locatorValue + "not found")
         return element
