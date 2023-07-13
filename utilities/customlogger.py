@@ -14,4 +14,3 @@ def customLogger():
     fileHandler.setFormatter(logFormat)
     logger.addHandler(fileHandler)
     return logger
-

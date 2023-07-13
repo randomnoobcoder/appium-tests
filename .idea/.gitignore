@@ -1,9 +1,0 @@
-# Default ignored files
-/shelf/
-workspace.xml
-SampleCodes/practise-codes.py
-base/__pycache__/
-logs/youtubeTest_logs
-reports/report.html
-tests/__pycache__/
-utilities/__pycache__/
