@@ -66,15 +66,12 @@ class TestFlipkartCases(unittest.TestCase):
         ele_size.click()
         ele_continue = self.page.waitForElement('text', "Continue")
         ele_continue.click()
-        # toast = self.driver.find_element(AppiumBy.XPATH, value="//android.widget.Toast")
-        # print(f'Toast msg ::  {toast.text}')
-        self.driver.implicitly_wait(5000)
+        # self.driver.implicitly_wait(5000)
         go_to_cart = self.page.waitForElement('text', "Go to cart")
         go_to_cart.click()
 
         ele_in_cart = self.page.waitForElement('xpath', "//android.view.ViewGroup/android.view.ViewGroup["
-                                                        "2]/android.view.ViewGroup/android.view.ViewGroup["
-                                                        "3]/android.widget.TextView[1]")
+                                                        "2]/android.widget.TextView[1]")
         ele_in_cart_text = ele_in_cart.text
         print(ele_in_cart_text)
         self.assertIn(ele_in_cart_text, ele_selected_text)

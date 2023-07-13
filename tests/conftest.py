@@ -4,6 +4,7 @@ import pytest
 from appium.webdriver.common.appiumby import AppiumBy
 
 from base.Driver import Driver
+from base.BasePage import BasePage
 
 
 @pytest.fixture(scope='class')
@@ -46,8 +47,10 @@ def setUpFlipkart(request):
 def initialSetupFlipkart(setUpFlipkart):
     print('------------- Setting up app to home screen ----------')
     driver = setUpFlipkart
-    driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, value='text("English")').click()
-    driver.find_element(AppiumBy.ID, value='com.flipkart.android:id/select_btn').click()
-    driver.find_element(AppiumBy.ID, value='com.google.android.gms:id/cancel').click()
-    driver.find_element(AppiumBy.ID, value='com.flipkart.android:id/custom_back_icon').click()
+    page = BasePage(driver)
+    page.waitForElement("text", "English").click()
+    page.waitForElement('id', 'com.flipkart.android:id/select_btn').click()
+    page.waitForElement('id', 'com.google.android.gms:id/cancel').click()
+    page.waitForElement('id', 'com.flipkart.android:id/custom_back_icon').click()
     driver.implicitly_wait(3000)
+    print('------------------- At Home Screen Now ------------------')

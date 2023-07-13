@@ -19,27 +19,57 @@ class BasePage:
                                                  ElementNotSelectableException])
         element = None
         if locatorType == 'id':
-            element = wait.until(EC.visibility_of(self.driver.find_element(AppiumBy.ID, value=locatorValue)))
-            return element
+            try:
+                element = wait.until(EC.visibility_of(self.driver.find_element(AppiumBy.ID, value=locatorValue)))
+                self.log.info(f'Locator Found : {locatorValue}')
+                return element
+            except Exception as e:
+                self.log.error(e)
+
         elif locatorType == 'class':
-            element = wait.until(EC.visibility_of(self.driver.find_element(AppiumBy.CLASS_NAME, value=locatorValue)))
-            return element
+            try:
+                element = wait.until(EC.visibility_of(self.driver.find_element(AppiumBy.CLASS_NAME, value=locatorValue)))
+                self.log.info(f'Locator Found : {locatorValue}')
+                return element
+            except Exception as e:
+                self.log.error(e)
+
         elif locatorType == 'desc':
-            element = wait.until(EC.visibility_of(
-                self.driver.findElement(AppiumBy.ANDROID_UIAUTOMATOR,
-                                        value=f'UiSelector.description("{locatorValue}")')))
-            return element
+            try:
+                element = wait.until(EC.visibility_of(
+                    self.driver.findElement(AppiumBy.ANDROID_UIAUTOMATOR,
+                                            value=f'UiSelector.description("{locatorValue}")')))
+                self.log.info(f'Locator Found : {locatorValue}')
+                return element
+            except Exception as e:
+                self.log.error(e)
+
         elif locatorType == "index":
-            element = wait.until(EC.visibility_of(
-                self.driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, value=f'UiSelector().index({locatorValue})')))
-            return element
+            try:
+                element = wait.until(EC.visibility_of(
+                    self.driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, value=f'UiSelector().index({locatorValue})')))
+                self.log.info(f'Locator Found : {locatorValue}')
+                return element
+            except Exception as e:
+                self.log.error(e)
+
         elif locatorType == "text":
-            element = wait.until(EC.visibility_of(
-                self.driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, f'text("{locatorValue}")')))
-            return element
+            try:
+                element = wait.until(EC.visibility_of(
+                    self.driver.find_element(AppiumBy.ANDROID_UIAUTOMATOR, f'text("{locatorValue}")')))
+                self.log.info(f'Locator Found : {locatorValue}')
+                return element
+            except Exception as e:
+                self.log.error(e)
+
         elif locatorType == "xpath":
-            element = wait.until(EC.visibility_of(self.driver.find_element(AppiumBy.XPATH, f'{locatorValue}')))
-            return element
+            try:
+                element = wait.until(EC.visibility_of(self.driver.find_element(AppiumBy.XPATH, f'{locatorValue}')))
+                self.log.info(f'Locator Found : {locatorValue}')
+                return element
+            except Exception as e:
+                self.log.error(e)
+
         else:
             self.log.info("Locator value " + locatorValue + "not found")
         return element
