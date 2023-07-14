@@ -14,8 +14,7 @@ def setUpYoutube(request):
     # appiumService.startAppiumService()
     driver = Driver.getDriver('com.google.android.youtube', 'com.google.android.apps.youtube.app.WatchWhileActivity')
     # driver.update_settings({"waitForIdleTimeout": 5})
-    driver.implicitly_wait(1000)
-
+    driver.implicitly_wait(3000)
     if request.cls is not None:
         request.cls.driver = driver
     yield driver
