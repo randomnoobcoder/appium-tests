@@ -14,12 +14,12 @@ class TestFlipkartCases(unittest.TestCase):
     def classObject(self):
         self.page = BasePage(self.driver)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_01_isAppInstalled(self) -> None:
         print("=============== Check if App is installed ================")
         assert self.driver.is_app_installed('com.flipkart.android')
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_02_search(self) -> None:
         ele_search_for_product = self.page.waitForElement('text', "Search for products")
         ele_search_for_product.click()
@@ -37,13 +37,14 @@ class TestFlipkartCases(unittest.TestCase):
         ele_result = self.page.waitForElement('id', "com.flipkart.android:id/title_action_bar")
         self.assertEqual(ele_result.text, "Questions and Answers")
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_03_openNotification(self) -> None:
         self.driver.open_notifications()
         seekBar = self.driver.find_element(AppiumBy.ID, value="com.android.systemui:id/slider")
         seekBar.send_keys("6000")
         self.driver.implicitly_wait(1000)
 
+    # @pytest.mark.skip
     def test_addToCart(self):
         ele_search_for_product = self.page.waitForElement('text', "Search for products")
         ele_search_for_product.click()

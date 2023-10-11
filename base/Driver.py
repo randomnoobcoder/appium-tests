@@ -1,6 +1,6 @@
 from utilities import deviceinfo
 from appium import webdriver
-from appium.options.android import  UiAutomator2Options
+from appium.options.android import UiAutomator2Options
 from appium.webdriver.appium_service import AppiumService
 
 
@@ -27,6 +27,7 @@ class Driver:
 
     @staticmethod
     def getDriver(appPackage, appActivity):
+
         desired_caps = {'platformName': 'Android',
                         'automationName': 'UiAutomator2',
                         'platformVersion': deviceinfo.DeviceProperties.platformVersion(),

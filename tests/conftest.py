@@ -1,8 +1,6 @@
 import time
-
 import pytest
 from appium.webdriver.common.appiumby import AppiumBy
-
 from base.Driver import Driver
 from base.BasePage import BasePage
 
@@ -10,9 +8,10 @@ from base.BasePage import BasePage
 @pytest.fixture(scope='class')
 def setUpYoutube(request):
     print('\n \n ================== Starting YouTube Test session ==============')
-    # appiumService = Driver()
-    # appiumService.startAppiumService()
+    appiumService = Driver()
+    appiumService.startAppiumService()
     driver = Driver.getDriver('com.google.android.youtube', 'com.google.android.apps.youtube.app.WatchWhileActivity')
+    driver.implicitly_wait(1000)
     # driver.update_settings({"waitForIdleTimeout": 5})
     driver.implicitly_wait(3000)
     if request.cls is not None:
@@ -21,15 +20,15 @@ def setUpYoutube(request):
     print('\n Sleeping for 3 sec')
     time.sleep(3)
     driver.quit()
-    # appiumService.stopAppiumService()
+    appiumService.stopAppiumService()
     print('\n ====================== Session End ===========================')
 
 
 @pytest.fixture(scope='class')
 def setUpFlipkart(request):
     print('\n \n ================== Starting Flipkart Test session ==============')
-    # appiumService = Driver()
-    # appiumService.startAppiumService()
+    appiumService = Driver()
+    appiumService.startAppiumService()
     driver = Driver.getDriver('com.flipkart.android', 'com.flipkart.android.activity.HomeFragmentHolderActivity')
     driver.implicitly_wait(1000)
     if request.cls is not None:
@@ -38,7 +37,7 @@ def setUpFlipkart(request):
     print('\n Sleeping for 3 sec')
     time.sleep(3)
     driver.quit()
-    # appiumService.stopAppiumService()
+    appiumService.stopAppiumService()
     print('\n ====================== Session End ===========================')
 
 

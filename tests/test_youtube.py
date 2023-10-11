@@ -81,7 +81,7 @@ class YoutubeTestCases(unittest.TestCase):
         self.assertEqual(current_user.text, user_to_log_in)
         self.driver.close_app()
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_04_videoPlayback(self):
         self.driver.launch_app()
         # Select Video
@@ -135,7 +135,7 @@ class YoutubeTestCases(unittest.TestCase):
         self.driver.implicitly_wait(5000)
         self.assertTrue(any(text_to_search in result.lower() or text_to_search_2 in result.lower() for result in result_list), msg='Value Not Matched')
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_06_multiAction(self):
         actions = ActionChains(self.driver)
         actions.w3c_actions = ActionBuilder(self.driver, mouse=PointerInput(interaction.POINTER_TOUCH, "touch"))
